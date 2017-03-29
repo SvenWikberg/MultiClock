@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -83,23 +84,27 @@ namespace MultiFonctionClock {
         }
 
         /// <summary>
-        /// displayMode : 0 = decimal / 1 = hexa / 2 = binaire / 3 = octal
+        /// displayMode : 0 = decimal / 1 = hexa / 2 = binaire / 3 = octal / 4 = roman
         /// </summary>
         public void Paint(PaintEventArgs e) {
             string tmpHour;
             string tmpMin;
             string tmpSec;
 
+            int x = Display.Parent.Width;
+
             switch (DisplayMode) {
                 case 0:
                     Display.Text = String.Format("{0:D2}:{1:D2}:{2:D2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
                     Display.Font = new Font("Arial", 30);
-                    Display.Location = new Point((e.ClipRectangle.Width / 2) - (Display.Width / 2), 250);
+                    Display.Location = Position;
+                    Debug.Print(x.ToString());
+                    //Display.Location = new Point(100, 250);
                     break;
                 case 1:
                     Display.Text = String.Format("{0:X2}:{1:X2}:{2:X2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
                     Display.Font = new Font("Lucida Console", 30);
-                    Display.Location = new Point(e.ClipRectangle.Width / 2 - Display.Width / 2, 250);
+                    Display.Location = Position;
                     break;
                 case 2:
                     tmpHour = Convert.ToString(DateTime.Now.Hour, 2);
@@ -120,7 +125,7 @@ namespace MultiFonctionClock {
 
                     Display.Text = String.Format("{0}:{1}:{2}", tmpHour, tmpMin, tmpSec);
                     Display.Font = new Font("Lucida Console", 15);
-                    Display.Location = new Point((e.ClipRectangle.Width / 2) - (Display.Width / 2), 250);
+                    Display.Location = Position;
                     break;
                 case 3:
                     tmpHour = Convert.ToString(DateTime.Now.Hour, 8);
@@ -139,9 +144,80 @@ namespace MultiFonctionClock {
 
                     Display.Text = String.Format("{0}:{1}:{2}", tmpHour, tmpMin, tmpSec);
                     Display.Font = new Font("Lucida Console", 30);
-                    Display.Location = new Point(e.ClipRectangle.Width / 2 - Display.Width / 2, 250);
+                    Display.Location = Position;
+                    break;
+                case 4: // DEBUGUER (8 devrait etre 08)
+                    Display.Text = String.Format("{0}:{1}:{2}", IntToRoman(DateTime.Now.Hour), IntToRoman(DateTime.Now.Minute), IntToRoman(DateTime.Now.Second));
+                    Display.Font = new Font("Lucida Console", 30);
+                    Display.Location = Position;
                     break;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value">Min = 0 / Max = 99</param>
+        /// <returns></returns>
+        private string IntToRoman(int value) {
+            string tmp = "";
+            string tmpValue = value.ToString();
+
+            switch (tmpValue[0]) {
+                case '1':
+                case '2':
+                case '3':
+                    for (int i = 0; i < Convert.ToInt32(tmpValue[0].ToString()); i++) {
+                        tmp += 'X';
+                    }
+                    break;
+                case '4':
+                    tmp += "XL";
+                    break;
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                    tmp += 'L';
+                    for (int i = 0; i < Convert.ToInt32(tmpValue[0].ToString()) - 5; i++) {
+                        tmp += 'X';
+                    }
+                    break;
+                case '9':
+                    tmp += "XC";
+                    break;
+                default:
+                    break;
+            }
+
+            switch (tmpValue[1]) {
+                case '1':
+                case '2':
+                case '3':
+                    for (int i = 0; i < Convert.ToInt32(tmpValue[0].ToString()); i++) {
+                        tmp += 'I';
+                    }
+                    break;
+                case '4':
+                    tmp += "IV";
+                    break;
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                    tmp += 'V';
+                    for (int i = 0; i < Convert.ToInt32(tmpValue[0].ToString()) - 5; i++) {
+                        tmp += 'I';
+                    }
+                    break;
+                case '9':
+                    tmp += "IX";
+                    break;
+                default:
+                    break;
+            }
+
+            return tmp;
         }
     }
 }

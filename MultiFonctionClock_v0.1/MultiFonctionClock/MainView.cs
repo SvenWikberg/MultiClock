@@ -22,6 +22,17 @@ namespace MultiFonctionClock {
             }
         }
 
+        public int ExtraHeight {
+            get {
+                return (this.Height - this.ClientRectangle.Height) + mnStrpMain.Height;
+            }
+        }
+        public int ExtraWidth {
+            get {
+                return (this.Width - this.ClientRectangle.Width);
+            }
+        }
+
         public MainView() {
             InitializeComponent();
             DoubleBuffered = true;
@@ -53,15 +64,13 @@ namespace MultiFonctionClock {
         }
 
         private void regularToolStripMenuItem_Click(object sender, EventArgs e) {
-            MyMultiFonctionClockModel.MainClock.IsHide = false;
-            MyMultiFonctionClockModel.MainDigitalClock.IsHide = true;
-            MyMultiFonctionClockModel.MainClock.IsSkyClock = false;
+
         }
 
         private void skyClockToolStripMenuItem_Click(object sender, EventArgs e) {
             MyMultiFonctionClockModel.MainClock.IsHide = false;
             MyMultiFonctionClockModel.MainDigitalClock.IsHide = true;
-            MyMultiFonctionClockModel.MainClock.IsSkyClock = true;
+            MyMultiFonctionClockModel.MainClock.DisplayMode = 1;
         }
 
         private void decimalToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -101,6 +110,22 @@ namespace MultiFonctionClock {
             MyMultiFonctionClockModel.TodayDate.DisplayMode = 0;
         }
 
-        
+        private void normalToolStripMenuItem_Click(object sender, EventArgs e) {
+            MyMultiFonctionClockModel.MainClock.IsHide = false;
+            MyMultiFonctionClockModel.MainDigitalClock.IsHide = true;
+            MyMultiFonctionClockModel.MainClock.DisplayMode = 0;
+        }
+
+        private void pointClockToolStripMenuItem_Click(object sender, EventArgs e) {
+            MyMultiFonctionClockModel.MainClock.IsHide = false;
+            MyMultiFonctionClockModel.MainDigitalClock.IsHide = true;
+            MyMultiFonctionClockModel.MainClock.DisplayMode = 2;
+        }
+
+        private void romanToolStripMenuItem_Click(object sender, EventArgs e) {
+            MyMultiFonctionClockModel.MainClock.IsHide = true;
+            MyMultiFonctionClockModel.MainDigitalClock.IsHide = false;
+            MyMultiFonctionClockModel.MainDigitalClock.DisplayMode = 4;
+        }
     }
 }

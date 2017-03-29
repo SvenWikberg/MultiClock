@@ -41,13 +41,16 @@
             this.binaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.octalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regularToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skyClockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pointClockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alarmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setAnAlarmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.typeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ddmmyyyyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.romanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnStrpMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +72,7 @@
             this.settingsToolStripMenuItem});
             this.mnStrpMain.Location = new System.Drawing.Point(0, 0);
             this.mnStrpMain.Name = "mnStrpMain";
-            this.mnStrpMain.Size = new System.Drawing.Size(434, 24);
+            this.mnStrpMain.Size = new System.Drawing.Size(244, 24);
             this.mnStrpMain.TabIndex = 1;
             this.mnStrpMain.Text = "menuStrip1";
             // 
@@ -88,17 +91,16 @@
             this.clockTypeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.regularToolStripMenuItem});
             this.clockTypeToolStripMenuItem.Name = "clockTypeToolStripMenuItem";
-            this.clockTypeToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.clockTypeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clockTypeToolStripMenuItem.Text = "Clock";
             // 
             // regularToolStripMenuItem
             // 
             this.regularToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.digitalToolStripMenuItem,
-            this.regularToolStripMenuItem1,
-            this.skyClockToolStripMenuItem});
+            this.regularToolStripMenuItem1});
             this.regularToolStripMenuItem.Name = "regularToolStripMenuItem";
-            this.regularToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.regularToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.regularToolStripMenuItem.Text = "Type";
             // 
             // digitalToolStripMenuItem
@@ -107,9 +109,10 @@
             this.decimalToolStripMenuItem,
             this.hexadecimalToolStripMenuItem,
             this.binaryToolStripMenuItem,
-            this.octalToolStripMenuItem});
+            this.octalToolStripMenuItem,
+            this.romanToolStripMenuItem});
             this.digitalToolStripMenuItem.Name = "digitalToolStripMenuItem";
-            this.digitalToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.digitalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.digitalToolStripMenuItem.Text = "Digital";
             // 
             // decimalToolStripMenuItem
@@ -142,24 +145,42 @@
             // 
             // regularToolStripMenuItem1
             // 
+            this.regularToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.normalToolStripMenuItem,
+            this.skyClockToolStripMenuItem,
+            this.pointClockToolStripMenuItem});
             this.regularToolStripMenuItem1.Name = "regularToolStripMenuItem1";
-            this.regularToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.regularToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.regularToolStripMenuItem1.Text = "Regular";
             this.regularToolStripMenuItem1.Click += new System.EventHandler(this.regularToolStripMenuItem_Click);
+            // 
+            // normalToolStripMenuItem
+            // 
+            this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.normalToolStripMenuItem.Text = "Normal";
+            this.normalToolStripMenuItem.Click += new System.EventHandler(this.normalToolStripMenuItem_Click);
             // 
             // skyClockToolStripMenuItem
             // 
             this.skyClockToolStripMenuItem.Name = "skyClockToolStripMenuItem";
-            this.skyClockToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.skyClockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.skyClockToolStripMenuItem.Text = "SkyClock";
             this.skyClockToolStripMenuItem.Click += new System.EventHandler(this.skyClockToolStripMenuItem_Click);
+            // 
+            // pointClockToolStripMenuItem
+            // 
+            this.pointClockToolStripMenuItem.Name = "pointClockToolStripMenuItem";
+            this.pointClockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pointClockToolStripMenuItem.Text = "PointClock";
+            this.pointClockToolStripMenuItem.Click += new System.EventHandler(this.pointClockToolStripMenuItem_Click);
             // 
             // alarmToolStripMenuItem
             // 
             this.alarmToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setAnAlarmToolStripMenuItem});
             this.alarmToolStripMenuItem.Name = "alarmToolStripMenuItem";
-            this.alarmToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.alarmToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.alarmToolStripMenuItem.Text = "Alarm";
             // 
             // setAnAlarmToolStripMenuItem
@@ -174,7 +195,7 @@
             this.dateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.typeToolStripMenuItem});
             this.dateToolStripMenuItem.Name = "dateToolStripMenuItem";
-            this.dateToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.dateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.dateToolStripMenuItem.Text = "Date";
             // 
             // typeToolStripMenuItem
@@ -200,13 +221,22 @@
             this.ddmmyyyyToolStripMenuItem.Text = "dd/mm/yyyy";
             this.ddmmyyyyToolStripMenuItem.Click += new System.EventHandler(this.ddmmyyyyToolStripMenuItem_Click);
             // 
+            // romanToolStripMenuItem
+            // 
+            this.romanToolStripMenuItem.Name = "romanToolStripMenuItem";
+            this.romanToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.romanToolStripMenuItem.Text = "Roman";
+            this.romanToolStripMenuItem.Click += new System.EventHandler(this.romanToolStripMenuItem_Click);
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 462);
+            this.ClientSize = new System.Drawing.Size(244, 302);
             this.Controls.Add(this.mnStrpMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.mnStrpMain;
+            this.MaximizeBox = false;
             this.Name = "MainView";
             this.Text = "Clock";
             this.Load += new System.EventHandler(this.MainView_Load);
@@ -238,7 +268,10 @@
         private System.Windows.Forms.ToolStripMenuItem typeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ddmmyyyyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem normalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem skyClockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pointClockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem romanToolStripMenuItem;
     }
 }
 

@@ -15,17 +15,18 @@ namespace MultiFonctionClock {
         Point _centerPoint;
         int _radius;
         bool _isHide;
-        bool _isSkyClock;
+        int _displayMode; // 0=normal / 1=skyclock / 2=pointClock
 
         public Clock(Point centerPoint, int radius) {
             CenterPoint = centerPoint;
+            Radius = radius;
 
-            Seconds = new ClockHand(centerPoint, 60, (int)(0.9 * radius), Pens.Red);
-            Minutes = new ClockHand(centerPoint, 60, (int)(0.8 * radius), Pens.Black);
-            Hours = new ClockHand(centerPoint, 12, (int)(0.6 * radius), Pens.Black);
-            Dial = new ClockFace(centerPoint, radius, true);
+            Seconds = new ClockHand(centerPoint, 60, (int)(0.9 * Radius), Pens.Red);
+            Minutes = new ClockHand(centerPoint, 60, (int)(0.8 * Radius), Pens.Black);
+            Hours = new ClockHand(centerPoint, 12, (int)(0.6 * Radius), Pens.Black);
+            Dial = new ClockFace(centerPoint, Radius, true);
             IsHide = true;
-            IsSkyClock = false;
+            DisplayMode = 0;
         }
 
         #region Properties
@@ -99,19 +100,24 @@ namespace MultiFonctionClock {
             }
         }
 
-        public bool IsSkyClock {
+        public int DisplayMode {
             get {
-                return _isSkyClock;
+                return _displayMode;
             }
 
             set {
-                _isSkyClock = value;
+                _displayMode = value;
             }
         }
         #endregion
 
         public void Paint(PaintEventArgs e) {
-            if (IsSkyClock) {
+            Seconds.Axis = CenterPoint;
+            Minutes.Axis = CenterPoint;
+            Hours.Axis = CenterPoint;
+            Dial.CenterPoint = CenterPoint;
+
+            if (DisplayMode == 1) {
                 Minutes.Axis = Hours.End;
                 Seconds.Axis = Minutes.End;
             }
@@ -121,18 +127,19 @@ namespace MultiFonctionClock {
                 Dial.Paint(e);
             }
 
-
             Hours.ActualTick = DateTime.Now.Hour;
-            Hours.Paint(e);
             Minutes.ActualTick = DateTime.Now.Minute;
-            Minutes.Paint(e);
             Seconds.ActualTick = DateTime.Now.Second;
-            Seconds.Paint(e);
 
-            if (IsSkyClock) {
-                e.Graphics.FillEllipse(Brushes.Black, Hours.Axis.X - 8, Hours.Axis.Y - 8, 16, 16);
-                e.Graphics.FillEllipse(Brushes.Black, Minutes.Axis.X - 6, Minutes.Axis.Y - 6, 12, 12);
-                e.Graphics.FillEllipse(Brushes.Black, Seconds.Axis.X - 6, Seconds.Axis.Y - 6, 12, 12);
+            if (DisplayMode != 2) {
+                Hours.Paint(e);
+                Minutes.Paint(e);
+                Seconds.Paint(e);
+            }
+
+            if (DisplayMode == 1 || DisplayMode == 2) {
+                e.Graphics.FillEllipse(Brushes.Black, Hours.End.X - 8, Hours.Axis.Y - 8, 16, 16);
+                e.Graphics.FillEllipse(Brushes.Black, Minutes.End.X - 6, Minutes.Axis.Y - 6, 12, 12);
                 e.Graphics.FillEllipse(Brushes.Red, Seconds.End.X - 4, Seconds.End.Y - 4, 8, 8);
             }
         }
