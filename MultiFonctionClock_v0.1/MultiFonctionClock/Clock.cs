@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MultiFonctionClock {
+
     public class Clock {
         ClockHand _seconds;
         ClockHand _minutes;
@@ -16,6 +17,8 @@ namespace MultiFonctionClock {
         int _radius;
         bool _isHide;
         int _displayMode; // 0=normal / 1=skyclock / 2=pointClock
+
+        public Clock() { }
 
         public Clock(Point centerPoint, int radius) {
             CenterPoint = centerPoint;
@@ -117,30 +120,46 @@ namespace MultiFonctionClock {
             Hours.Axis = CenterPoint;
             Dial.CenterPoint = CenterPoint;
 
-            if (DisplayMode == 1) {
-                Minutes.Axis = Hours.End;
-                Seconds.Axis = Minutes.End;
-            }
-            else {
-                Minutes.Axis = Hours.Axis;
-                Seconds.Axis = Hours.Axis;
-                Dial.Paint(e);
-            }
-
             Hours.ActualTick = DateTime.Now.Hour;
             Minutes.ActualTick = DateTime.Now.Minute;
             Seconds.ActualTick = DateTime.Now.Second;
 
-            if (DisplayMode != 2) {
-                Hours.Paint(e);
-                Minutes.Paint(e);
-                Seconds.Paint(e);
-            }
+            switch (DisplayMode) {
+                case 0: // regular
+                    Minutes.Axis = Hours.Axis;
+                    Seconds.Axis = Hours.Axis;
 
-            if (DisplayMode == 1 || DisplayMode == 2) {
-                e.Graphics.FillEllipse(Brushes.Black, Hours.End.X - 8, Hours.Axis.Y - 8, 16, 16);
-                e.Graphics.FillEllipse(Brushes.Black, Minutes.End.X - 6, Minutes.Axis.Y - 6, 12, 12);
-                e.Graphics.FillEllipse(Brushes.Red, Seconds.End.X - 4, Seconds.End.Y - 4, 8, 8);
+                    Hours.Paint(e);
+                    Minutes.Paint(e);
+                    Seconds.Paint(e);
+                    Dial.Paint(e);
+                    break;
+                case 1: // skyclock
+                    Minutes.Axis = Hours.End;
+                    Seconds.Axis = Minutes.End;
+
+                    e.Graphics.FillEllipse(Brushes.Black, Hours.Axis.X - 8, Hours.Axis.Y - 8, 16, 16);
+                    e.Graphics.FillEllipse(Brushes.Black, Hours.End.X - 8, Hours.End.Y - 8, 16, 16);
+
+                    Hours.Paint(e);
+                    Minutes.Paint(e);
+                    Seconds.Paint(e);
+
+                    e.Graphics.FillEllipse(Brushes.Black, Minutes.End.X - 6, Minutes.End.Y - 6, 12, 12);
+                    e.Graphics.FillEllipse(Brushes.Red, Seconds.End.X - 4, Seconds.End.Y - 4, 8, 8);
+                    break;
+                case 2: // point clock
+                    Minutes.Axis = Hours.Axis;
+                    Seconds.Axis = Hours.Axis;
+
+                    Dial.Paint(e);
+
+                    e.Graphics.FillEllipse(Brushes.Black, Hours.End.X - 8, Hours.End.Y - 8, 16, 16);
+                    e.Graphics.FillEllipse(Brushes.Black, Minutes.End.X - 6, Minutes.End.Y - 6, 12, 12);
+                    e.Graphics.FillEllipse(Brushes.Red, Seconds.End.X - 4, Seconds.End.Y - 4, 8, 8);
+                    break;
+                default:
+                    break;
             }
         }
     }

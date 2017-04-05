@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace MultiFonctionClock {
+
     public class MultiFonctionClockModel {
         const int CLOCK_PADDING = 25;
 
@@ -74,6 +77,8 @@ namespace MultiFonctionClock {
                 _myMainView = value;
             }
         }
+
+        public MultiFonctionClockModel() { }
 
         public MultiFonctionClockModel(MainView myMainView) {
             MyMainView = myMainView;

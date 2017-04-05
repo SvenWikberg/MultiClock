@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MultiFonctionClock {
+
     public class ClockHand {
         Point _axis;
         int _maxTicks;
         int _actualTick;
         int _length;
         Pen _penColor;
+
+        public ClockHand() { }
 
         public ClockHand(Point axis, int maxTicks, int lenght, Pen penColor) {
             Axis = axis;

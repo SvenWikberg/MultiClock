@@ -40,6 +40,7 @@
             this.hexadecimalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.binaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.octalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.romanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regularToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skyClockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,6 @@
             this.typeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ddmmyyyyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.romanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnStrpMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +91,7 @@
             this.clockTypeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.regularToolStripMenuItem});
             this.clockTypeToolStripMenuItem.Name = "clockTypeToolStripMenuItem";
-            this.clockTypeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clockTypeToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.clockTypeToolStripMenuItem.Text = "Clock";
             // 
             // regularToolStripMenuItem
@@ -100,7 +100,7 @@
             this.digitalToolStripMenuItem,
             this.regularToolStripMenuItem1});
             this.regularToolStripMenuItem.Name = "regularToolStripMenuItem";
-            this.regularToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.regularToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.regularToolStripMenuItem.Text = "Type";
             // 
             // digitalToolStripMenuItem
@@ -112,7 +112,7 @@
             this.octalToolStripMenuItem,
             this.romanToolStripMenuItem});
             this.digitalToolStripMenuItem.Name = "digitalToolStripMenuItem";
-            this.digitalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.digitalToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.digitalToolStripMenuItem.Text = "Digital";
             // 
             // decimalToolStripMenuItem
@@ -143,6 +143,13 @@
             this.octalToolStripMenuItem.Text = "Octal";
             this.octalToolStripMenuItem.Click += new System.EventHandler(this.octalToolStripMenuItem_Click);
             // 
+            // romanToolStripMenuItem
+            // 
+            this.romanToolStripMenuItem.Name = "romanToolStripMenuItem";
+            this.romanToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.romanToolStripMenuItem.Text = "Roman";
+            this.romanToolStripMenuItem.Click += new System.EventHandler(this.romanToolStripMenuItem_Click);
+            // 
             // regularToolStripMenuItem1
             // 
             this.regularToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -150,28 +157,28 @@
             this.skyClockToolStripMenuItem,
             this.pointClockToolStripMenuItem});
             this.regularToolStripMenuItem1.Name = "regularToolStripMenuItem1";
-            this.regularToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.regularToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
             this.regularToolStripMenuItem1.Text = "Regular";
             this.regularToolStripMenuItem1.Click += new System.EventHandler(this.regularToolStripMenuItem_Click);
             // 
             // normalToolStripMenuItem
             // 
             this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            this.normalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.normalToolStripMenuItem.Text = "Normal";
             this.normalToolStripMenuItem.Click += new System.EventHandler(this.normalToolStripMenuItem_Click);
             // 
             // skyClockToolStripMenuItem
             // 
             this.skyClockToolStripMenuItem.Name = "skyClockToolStripMenuItem";
-            this.skyClockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.skyClockToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.skyClockToolStripMenuItem.Text = "SkyClock";
             this.skyClockToolStripMenuItem.Click += new System.EventHandler(this.skyClockToolStripMenuItem_Click);
             // 
             // pointClockToolStripMenuItem
             // 
             this.pointClockToolStripMenuItem.Name = "pointClockToolStripMenuItem";
-            this.pointClockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pointClockToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.pointClockToolStripMenuItem.Text = "PointClock";
             this.pointClockToolStripMenuItem.Click += new System.EventHandler(this.pointClockToolStripMenuItem_Click);
             // 
@@ -180,7 +187,7 @@
             this.alarmToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setAnAlarmToolStripMenuItem});
             this.alarmToolStripMenuItem.Name = "alarmToolStripMenuItem";
-            this.alarmToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.alarmToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.alarmToolStripMenuItem.Text = "Alarm";
             // 
             // setAnAlarmToolStripMenuItem
@@ -195,7 +202,7 @@
             this.dateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.typeToolStripMenuItem});
             this.dateToolStripMenuItem.Name = "dateToolStripMenuItem";
-            this.dateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dateToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.dateToolStripMenuItem.Text = "Date";
             // 
             // typeToolStripMenuItem
@@ -220,13 +227,6 @@
             this.ddmmyyyyToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.ddmmyyyyToolStripMenuItem.Text = "dd/mm/yyyy";
             this.ddmmyyyyToolStripMenuItem.Click += new System.EventHandler(this.ddmmyyyyToolStripMenuItem_Click);
-            // 
-            // romanToolStripMenuItem
-            // 
-            this.romanToolStripMenuItem.Name = "romanToolStripMenuItem";
-            this.romanToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.romanToolStripMenuItem.Text = "Roman";
-            this.romanToolStripMenuItem.Click += new System.EventHandler(this.romanToolStripMenuItem_Click);
             // 
             // MainView
             // 

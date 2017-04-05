@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MultiFonctionClock {
+
     public class ClockFace {
         Point _centerPoint;
         int _radius;
         bool _circle;
+
+        public ClockFace() { }
 
         public ClockFace(Point centerPoint, int radius, bool circle) {
             CenterPoint = centerPoint;

@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace MultiFonctionClock {
+
     public partial class MainView : Form {
 
         MultiFonctionClockModel _myMultiFonctionClockModel;
@@ -37,6 +41,14 @@ namespace MultiFonctionClock {
             InitializeComponent();
             DoubleBuffered = true;
 
+            /*if (File.Exists("myModelData.xml")) {
+                FileStream fs = new FileStream("myModelData.xml", FileMode.Open);
+                XmlSerializer xs = new XmlSerializer(typeof(MultiFonctionClockModel));
+                MyMultiFonctionClockModel = (MultiFonctionClockModel)xs.Deserialize(fs);
+                fs.Close();
+            } else {
+                MyMultiFonctionClockModel = new MultiFonctionClockModel(this);
+            }*/
             MyMultiFonctionClockModel = new MultiFonctionClockModel(this);
         }
 

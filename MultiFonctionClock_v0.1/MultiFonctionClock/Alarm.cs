@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MultiFonctionClock {
+
     public class Alarm {
         ClockHand _secondsHand;
         ClockHand _minutesHand;
         ClockHand _hoursHand;
         Point _centerPoint;
         int _radius;
+
+        public Alarm() { }
 
         public Alarm(Point centerPoint, int radius) {
             CenterPoint = centerPoint;

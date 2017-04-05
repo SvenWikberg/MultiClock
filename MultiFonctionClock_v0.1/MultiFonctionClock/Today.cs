@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MultiFonctionClock {
+
     public class Today {
+
         MainView _view;
         public MainView View {
             get {
@@ -63,6 +65,8 @@ namespace MultiFonctionClock {
                 isHide = value;
             }
         }
+
+        public Today() { }
 
         public Today(Point position, MainView view) {
             Position = position;

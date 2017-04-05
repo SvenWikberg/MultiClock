@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MultiFonctionClock {
+
     public class DigitalClock {
+
         MainView _view;
         public MainView View {
             get {
@@ -63,6 +65,8 @@ namespace MultiFonctionClock {
                 isHide = value;
             }
         }
+
+        public DigitalClock() { }
 
         public DigitalClock(Point position, MainView view) {
             Position = position;
@@ -161,7 +165,7 @@ namespace MultiFonctionClock {
         /// <returns></returns>
         private string IntToRoman(int value) {
             string tmp = "";
-            string tmpValue = value.ToString();
+            string tmpValue = value < 10 ? '0' + value.ToString() : value.ToString();
 
             switch (tmpValue[0]) {
                 case '1':
@@ -179,7 +183,7 @@ namespace MultiFonctionClock {
                 case '7':
                 case '8':
                     tmp += 'L';
-                    for (int i = 0; i < Convert.ToInt32(tmpValue[0].ToString()) - 5; i++) {
+                    for (int i = 0; i < (Convert.ToInt32(tmpValue[0].ToString()) - 5); i++) {
                         tmp += 'X';
                     }
                     break;
@@ -194,7 +198,7 @@ namespace MultiFonctionClock {
                 case '1':
                 case '2':
                 case '3':
-                    for (int i = 0; i < Convert.ToInt32(tmpValue[0].ToString()); i++) {
+                    for (int i = 0; i < Convert.ToInt32(tmpValue[1].ToString()); i++) {
                         tmp += 'I';
                     }
                     break;
@@ -206,7 +210,7 @@ namespace MultiFonctionClock {
                 case '7':
                 case '8':
                     tmp += 'V';
-                    for (int i = 0; i < Convert.ToInt32(tmpValue[0].ToString()) - 5; i++) {
+                    for (int i = 0; i < (Convert.ToInt32(tmpValue[1].ToString()) - 5); i++) {
                         tmp += 'I';
                     }
                     break;
@@ -217,7 +221,12 @@ namespace MultiFonctionClock {
                     break;
             }
 
-            return tmp;
+            if (value == 0) {
+                return "nulla";
+            }
+            else {
+                return tmp;
+            }
         }
     }
 }
