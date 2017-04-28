@@ -28,3 +28,13 @@ C:\Users\wikbergs_info\Desktop\mercredi\MultiClock\MultiFonctionClock\MultiFonct
 C:\Users\wikbergs_info\Desktop\mercredi\MultiClock\MultiFonctionClock\MultiFonctionClock\obj\Debug\MultiFonctionClock.Properties.Resources.resources
 C:\Users\wikbergs_info\Desktop\mercredi\MultiClock\MultiFonctionClock\MultiFonctionClock\obj\Debug\MultiFonctionClock.SetAlarmView.resources
 C:\Users\wikbergs_info\Desktop\mercredi\MultiClock\MultiFonctionClock\MultiFonctionClock\obj\Debug\MultiFonctionClock.csproj.GenerateResource.Cache
+E:\CFPT\MultiClock\MultiFonctionClock\MultiFonctionClock\bin\Debug\MultiFonctionClock.exe.config
+E:\CFPT\MultiClock\MultiFonctionClock\MultiFonctionClock\obj\Debug\MultiFonctionClock.exe
+E:\CFPT\MultiClock\MultiFonctionClock\MultiFonctionClock\obj\Debug\MultiFonctionClock.pdb
+E:\CFPT\MultiClock\MultiFonctionClock\MultiFonctionClock\bin\Debug\MultiFonctionClock.exe
+E:\CFPT\MultiClock\MultiFonctionClock\MultiFonctionClock\bin\Debug\MultiFonctionClock.pdb
+E:\CFPT\MultiClock\MultiFonctionClock\MultiFonctionClock\obj\Debug\MultiFonctionClock.csprojResolveAssemblyReference.cache
+E:\CFPT\MultiClock\MultiFonctionClock\MultiFonctionClock\obj\Debug\MultiFonctionClock.MainView.resources
+E:\CFPT\MultiClock\MultiFonctionClock\MultiFonctionClock\obj\Debug\MultiFonctionClock.Properties.Resources.resources
+E:\CFPT\MultiClock\MultiFonctionClock\MultiFonctionClock\obj\Debug\MultiFonctionClock.SetAlarmView.resources
+E:\CFPT\MultiClock\MultiFonctionClock\MultiFonctionClock\obj\Debug\MultiFonctionClock.csproj.GenerateResource.Cache
